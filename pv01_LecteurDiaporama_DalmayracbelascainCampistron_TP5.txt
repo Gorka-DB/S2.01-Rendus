@@ -1,0 +1,6 @@
+Version 1 de l'application: Projet non graphique orienté objet
+-------------------------------------------------------------------------
+
+Apdaptation en développement orienté objet de la Version 0 fournie
+Le lecteur s'exécute en mode console et ne propose que le mode manuel
+
