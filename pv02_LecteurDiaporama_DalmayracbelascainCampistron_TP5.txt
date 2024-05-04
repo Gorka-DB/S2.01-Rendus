@@ -1,0 +1,7 @@
+Version 2 de l'application: Projet graphique orienté objet
+-------------------------------------------------------------------------
+
+Apdaptation en version graphique orientée objet de la Version 1 codée précédemment
+Utilisation de Qt pour créer une interface graphique possèdant les boutons des fonctionnalités de l'application
+mais celles-ci n'ont pas encore été mises en place.
+Les boutons déclenchent des messages de débuggage qDebug() pour informer l'utilisateur de son action
