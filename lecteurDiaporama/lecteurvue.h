@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include <QDebug>
+#include "lecteurpresentation.h"
 
 namespace Ui {
 class lecteurvue;
@@ -14,11 +15,12 @@ class lecteurvue : public QMainWindow
 
 private:
     Ui::lecteurvue *ui;
+    LecteurPresentation* presentation;
 
 public:
     explicit lecteurvue(QWidget *parent = nullptr);
     ~lecteurvue();
-
+/*
 public slots:
 
     void btnSuivant_clicked();
@@ -31,7 +33,7 @@ public slots:
     void actionEnlever_diaporama_triggered();
     void actionQuitter_triggered();
     void actionFiltrer_triggered();
-
+*/
 
 };
 
