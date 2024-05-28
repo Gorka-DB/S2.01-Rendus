@@ -1,0 +1,6 @@
+Version 4 de lecteur de diaporama en c++ orienté objet avec interface graphique Qt
+Résumé : Cette version corrige certaines erreurs faites lors de la V3 MVP. Elle ajoute la
+fonctionnalité de lecture en “mode auto” du diaporama ( défilement des images indéfiniment
+jusqu’à une demande d’arrêt de celui-ci par l’utilisateur )
+La fonctionnalité de chargement de diaporama est pour l’instant quant à elle présente mais ne
+semble pas fonctionner à 100% car des erreurs persistent. Elle sera corrigée en vue de la V5.

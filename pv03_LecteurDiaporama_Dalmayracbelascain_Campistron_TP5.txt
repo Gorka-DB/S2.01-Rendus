@@ -1,4 +1,0 @@
-Cette version corrige de nombreuses erreurs faites lors de la V2 MVP, comme une mauvaise implémentation du modèle MVP, dans les classes LecteurPresentation et lecteurVue en particulier.
-Elle ajoute la fonctionnalité d’affichage des images dans l’interface visuelle, ainsi que le fonctionnement du lecteur en “mode manuel” ( défilement des images lors du clic sur un bouton suivant ou précédent ),
-quitter l’application via un menu Fichier >>> Quitter,
-ainsi qu’obtenir des informations relatives à l’application via un menu Aide >>> A propos de…
