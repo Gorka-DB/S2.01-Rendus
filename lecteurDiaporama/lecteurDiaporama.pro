@@ -19,3 +19,6 @@ HEADERS += \
 
 FORMS += \
     lecteurvue.ui
+
+RESOURCES += \
+    images.qrc

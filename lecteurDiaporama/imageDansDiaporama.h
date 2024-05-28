@@ -5,6 +5,13 @@ using namespace std;
 
 class ImageDansDiaporama
 {
+private:
+    unsigned int rangDansDiaporama;         /* rang de l'image au sein du diaporama
+                                   auquel l'image est associée */
+    string titre;              // intitulé de l'image
+    string categorie;          // catégorie de l'image (personne, animal, objet)
+    string chemin;             // chemin complet vers le dossier où se trouve l'image
+
 public:
     ImageDansDiaporama(unsigned int pRangDansDiaporama=0,
                        string pCategorie="", string pTitre="", string pChemin = "");
@@ -21,12 +28,6 @@ public:
     void setCategorie (string pCategorie);
     void setChemin (string pChemin);
 
-private:
-    unsigned int rangDansDiaporama;         /* rang de l'image au sein du diaporama
-                                   auquel l'image est associée */
-    string titre;              // intitulé de l'image
-    string categorie;          // catégorie de l'image (personne, animal, objet)
-    string chemin;             // chemin complet vers le dossier où se trouve l'image
 };
 
 #endif // IMAGE_DANS_DIAPORAMA_H

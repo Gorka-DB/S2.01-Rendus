@@ -10,12 +10,25 @@
    - en contrepartie, il est aussi désormais possible de 'vider' le lecteur, c'est à dire de dissocier un éventuel
      diaporama qui lui aurait été associé.
 */
+enum UnEtat {m,a}; // m correspond à un mode manuel ; a correspond à un mode automatique
 
 class Lecteur
 {
+
+private:
+    unsigned idDiaporama;             /* identifiant en Base de Données du diaporama courant,
+                                         = 0 si pas de diaporama dans le lecteur */
+    Diaporama* diaporama;             /* pointeur vers le diaporama associé au lecteur,
+                                         = nullptr si pas de diaporama dans le lecteur) */
+    unsigned int posImageCourante;    /* position de l'image courante du diaporama courant.
+                                         Indéfinie quand lecteur vide ou diaporama vide.
+                                         >= 0 quand lecteur non vide et diaporama non vide */
 public:
     Lecteur();
     ~Lecteur();
+
+    UnEtat getEtat() const;
+    void setEtat(UnEtat etat);
 
     unsigned int getIdDiaporama() const;
     Diaporama* getDiaporama() const;
@@ -45,17 +58,12 @@ public:
          /* si 1 diaporama non vide est associé au lecteur : décrémente posImageCourante, modulo nbImages()
          * sinon : ne fait rien */
     void viderLecteur();        // s'il en existe un, enlève le diaporama courant du lecteur
+    bool getLecteurVide() const;
+
 
 private:
-    unsigned idDiaporama;             /* identifiant en Base de Données du diaporama courant,
-                                         = 0 si pas de diaporama dans le lecteur */
-    Diaporama* diaporama;             /* pointeur vers le diaporama associé au lecteur,
-                                         = nullptr si pas de diaporama dans le lecteur) */
-    unsigned int posImageCourante;    /* position de l'image courante du diaporama courant.
-                                         Indéfinie quand lecteur vide ou diaporama vide.
-                                         >= 0 quand lecteur non vide et diaporama non vide */
-private:
     void chargerDiaporamaCourant();    // charge dans le lecteur ImageDansDiaporama du numDiaporamaCourant
+    UnEtat modeLecture;
 };
 
 #endif // LECTEUR_H

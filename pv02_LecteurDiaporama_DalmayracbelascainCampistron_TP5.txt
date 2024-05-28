@@ -1,4 +1,0 @@
-Version 2 MVP de l'application: Projet graphique orienté objet
--------------------------------------------------------------------------
-
-Apdaptation en version graphique orientée objet sous le modèle MVP de la version 1

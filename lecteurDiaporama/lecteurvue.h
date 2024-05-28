@@ -3,37 +3,41 @@
 
 #include <QMainWindow>
 #include <QDebug>
-#include "lecteurpresentation.h"
 
 namespace Ui {
 class lecteurvue;
 }
 
+class LecteurPresentation;
 class lecteurvue : public QMainWindow
 {
     Q_OBJECT
 
 private:
-    Ui::lecteurvue *ui;
+    Ui::lecteurvue* ui;
     LecteurPresentation* presentation;
 
 public:
-    explicit lecteurvue(QWidget *parent = nullptr);
+    lecteurvue(QWidget *parent = nullptr);
     ~lecteurvue();
-/*
-public slots:
+    //mise à jour de la vue
+    void majInterface(QString, std::string, std::string, int);
+    void setPresentation(LecteurPresentation*);
+    LecteurPresentation* getPresentation();
+    void initialisation();
 
-    void btnSuivant_clicked();
-    void btnPrecedent_clicked();
-    void btnLancer_clicked();
-    void btnArreter_clicked();
-    void actionA_propos_de_triggered();
-    void actionCharger_diaporama_triggered();
-    void actionModifier_vitesse_triggered();
-    void actionEnlever_diaporama_triggered();
-    void actionQuitter_triggered();
-    void actionFiltrer_triggered();
-*/
+private slots:
+
+    void demander_btnSuivant_clicked();
+    void demander_btnPrecedent_clicked();
+    void demander_btnLancer_clicked();
+    void demander_btnArreter_clicked();
+    void demander_actionA_propos_de_triggered();
+    void demander_actionCharger_diaporama_triggered();
+    void demander_actionModifier_vitesse_triggered();
+    void demander_actionEnlever_diaporama_triggered();
+    void demander_actionQuitter_triggered();
+    void demander_actionFiltrer_triggered();
 
 };
 

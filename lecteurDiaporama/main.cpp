@@ -1,11 +1,21 @@
 #include <QApplication>
 #include "lecteurvue.h"
+#include "lecteurpresentation.h"
+#include "lecteur.h"
 
 int main(int argc, char *argv[]) {
-    QApplication app(argc, argv);
+    QApplication application(argc, argv);
 
-    lecteurvue fenetrePrincipale; // Crée l'instance de votre vue principale
-    fenetrePrincipale.show(); // Affiche la fenêtre principale
+    Lecteur* lecteur = new Lecteur();
+    lecteurvue vue;
+    LecteurPresentation* presentation = new LecteurPresentation();
+    presentation->setLecteur(lecteur);
+    presentation->setVue(&vue);
+    vue.setPresentation(presentation);
 
-    return app.exec(); // Lance la boucle d'événements de l'application
+
+
+    vue.show();
+    //vue.majInterface();
+    return application.exec();
 }

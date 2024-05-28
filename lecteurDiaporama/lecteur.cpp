@@ -1,8 +1,10 @@
 #include "lecteur.h"
+#include <QDebug>
 
 Lecteur::Lecteur() : idDiaporama(0), diaporama(nullptr)
 {
     // posImageCourante indéfini
+    modeLecture = m;
 }
 
 Lecteur::~Lecteur()
@@ -13,6 +15,29 @@ Lecteur::~Lecteur()
         delete diaporama;
     }
 }
+
+UnEtat Lecteur::getEtat() const
+{
+    return modeLecture;
+}
+
+void Lecteur::setEtat(UnEtat etat)
+{
+    modeLecture = etat;
+}
+
+
+/*
+void Lecteur::enleverDiapo()
+{
+    if (getDiaporama() != nullptr)
+    {
+        diaporama->vider();
+        delete diaporama;
+        diaporama = nullptr;
+    }
+}
+*/
 
 unsigned int Lecteur::getIdDiaporama() const
 {
@@ -149,6 +174,7 @@ void Lecteur::avancer()
         {
             setPosImageCourante(0);
         }
+
         else {
             setPosImageCourante(getPosImageCourante() + 1);
         }
@@ -190,6 +216,7 @@ void Lecteur::viderLecteur()
 
 
 
-
-
-
+bool Lecteur::getLecteurVide() const
+{
+    return lecteurVide();
+}
