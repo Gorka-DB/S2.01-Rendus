@@ -132,9 +132,11 @@ void LecteurPresentation::actionChargerDiaporamaTriggered(unsigned int num) {
 }
 
 
-void LecteurPresentation::actionModifierVitesseTriggered() {
+void LecteurPresentation::actionModifierVitesseTriggered(unsigned int v) {
     qDebug() << "Changement de la vitesse de lecture.";
     // Ouvrir une boîte de dialogue pour sélectionner la nouvelle vitesse
+    leLecteur->getDiaporama()->setVitesseDefilement(v);
+
 }
 
 void LecteurPresentation::actionQuitterTriggered() {
@@ -144,11 +146,18 @@ void LecteurPresentation::actionQuitterTriggered() {
 
 void LecteurPresentation::actionEnleverDiaporamaTriggered() {
     qDebug() << "Ejection du diaporama";
+    if (leLecteur->getDiaporama() != nullptr)
+    {
+        delete leLecteur->getDiaporama();
+        leLecteur->viderLecteur();
+        laVue->majInterface("Chemin", "Titre", "Categorie", 0);
+    }
 }
 
 void LecteurPresentation::actionFiltrerTriggered() {
     qDebug() << "Filtrage";
 }
+
 
 void LecteurPresentation::autoSuivant(){
     btnSuivantClicked();

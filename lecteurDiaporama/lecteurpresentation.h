@@ -40,7 +40,7 @@ public:
     void btnArreterClicked();
     void actionAProposDeTriggered();
     void actionChargerDiaporamaTriggered(unsigned int);
-    void actionModifierVitesseTriggered();
+    void actionModifierVitesseTriggered(unsigned int);
     void actionEnleverDiaporamaTriggered();
     void actionQuitterTriggered();
     void actionFiltrerTriggered();

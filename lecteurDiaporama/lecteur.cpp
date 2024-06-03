@@ -149,10 +149,7 @@ void Lecteur::changerDiaporama(unsigned int pId, string pTitre, unsigned int pVi
         {
             diaporama->vider();
         }
-        else
-        {
-            diaporama = new Diaporama();
-        }
+        diaporama = new Diaporama();
         setIdDiaporama(pId);
         diaporama->setId(pId);
         diaporama->setTitre(pTitre);
@@ -199,8 +196,9 @@ void Lecteur::chargerDiaporamaCourant()
 {
     /* Chargement des images associées au diaporama courant */
     diaporama->charger();
-    if (nbImages() != 0)
-    { setPosImageCourante(0) ;}
+    if (nbImages() != 0){
+        setPosImageCourante(0);
+    }
 }
 
 void Lecteur::viderLecteur()

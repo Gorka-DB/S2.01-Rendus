@@ -80,7 +80,9 @@ void lecteurvue::demander_actionCharger_diaporama_triggered()
 
 void lecteurvue::demander_actionModifier_vitesse_triggered()
 {
-    presentation->actionModifierVitesseTriggered();
+
+    unsigned int vitesse = QInputDialog::getInt(this, tr("QInputDialog::getText()"),tr("Vitesse de défilement (en sec.) :"), QLineEdit::Normal);
+    presentation->actionModifierVitesseTriggered(vitesse);
 }
 
 void lecteurvue::demander_actionEnlever_diaporama_triggered()

@@ -1,0 +1,3 @@
+Version 5 de lecteur de diaporama en c++ orienté objet avec interface graphique Qt
+Résumé : Cette ajoute la fonctionnalité de chargement et de déchargement de diporamas.
+La fonctionnalité de changement de vitesse de lecture à également été implémentée.
