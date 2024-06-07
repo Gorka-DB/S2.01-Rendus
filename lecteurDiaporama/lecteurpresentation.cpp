@@ -70,9 +70,14 @@ void LecteurPresentation::btnSuivantClicked() {
     //passer à l'image suivante si le modele existe
     if (leLecteur != nullptr)
     {
-        leLecteur->avancer();
-        laVue->majInterface(QString::fromStdString(getLecteur()->getImageCourante()->getChemin()), getLecteur()->getImageCourante()->getTitre(), getLecteur()->getImageCourante()->getCategorie(), getLecteur()->getImageCourante()->getRangDansDiaporama());
-        qDebug() << "Passage à l'image suivante";
+        if(!leLecteur->lecteurVide()){
+            leLecteur->avancer();
+            laVue->majInterface(QString::fromStdString(getLecteur()->getImageCourante()->getChemin()), getLecteur()->getImageCourante()->getTitre(), getLecteur()->getImageCourante()->getCategorie(), getLecteur()->getImageCourante()->getRangDansDiaporama());
+            qDebug() << "Passage à l'image suivante";
+        }
+        else {
+            qDebug() << "Erreur : Pas de diaporama chargé" << Qt::endl;
+        }
     }
 }
 
@@ -80,9 +85,14 @@ void LecteurPresentation::btnPrecedentClicked() {
     //passer à l'image précédente si le modele existe
     if (leLecteur != nullptr)
     {
-        leLecteur->reculer();
-        laVue->majInterface(QString::fromStdString(getLecteur()->getImageCourante()->getChemin()), getLecteur()->getImageCourante()->getTitre(), getLecteur()->getImageCourante()->getCategorie(), getLecteur()->getImageCourante()->getRangDansDiaporama());
-        qDebug() << "Passage à l'image précédente";
+        if(!leLecteur->lecteurVide()){
+            leLecteur->reculer();
+            laVue->majInterface(QString::fromStdString(getLecteur()->getImageCourante()->getChemin()), getLecteur()->getImageCourante()->getTitre(), getLecteur()->getImageCourante()->getCategorie(), getLecteur()->getImageCourante()->getRangDansDiaporama());
+            qDebug() << "Passage à l'image précédente";
+        }
+        else {
+            qDebug() << "Erreur : Pas de diaporama chargé" << Qt::endl;
+        }
     }
 }
 
@@ -96,6 +106,9 @@ void LecteurPresentation::btnLancerClicked() {
         qDebug() << intervalle << Qt::endl;
         leTimer->start(intervalle);
     }
+    else {
+        qDebug() << "Erreur : Pas de diaporama chargé" << Qt::endl;
+    }
 }
 
 void LecteurPresentation::btnArreterClicked() {
@@ -103,6 +116,9 @@ void LecteurPresentation::btnArreterClicked() {
     if(leLecteur->lecteurVide() == false && leLecteur->getEtat() == a){
         leLecteur->setEtat(m);
         leTimer->stop();
+    }
+    else {
+        qDebug() << "Erreur : Pas de diaporama chargé" << Qt::endl;
     }
     // logique pour passer à l'image suivante
 }
@@ -113,6 +129,7 @@ void LecteurPresentation::actionAProposDeTriggered() {
 
 void LecteurPresentation::actionChargerDiaporamaTriggered(unsigned int num) {
     qDebug() << "Chargement d'un diaporama.";
+    if (num <= listeDeDiaporamas.size()){
     if (leLecteur->getDiaporama() != nullptr)
     {
         delete leLecteur->getDiaporama();
@@ -129,6 +146,10 @@ void LecteurPresentation::actionChargerDiaporamaTriggered(unsigned int num) {
     }
     laVue->majInterface(QString::fromStdString(getLecteur()->getDiaporama()->getImageCourante()->getChemin()), getLecteur()->getDiaporama()->getImageCourante()->getTitre(), getLecteur()->getDiaporama()->getImageCourante()->getCategorie(), getLecteur()->getDiaporama()->getImageCourante()->getRangDansDiaporama());
 
+    }
+    else {
+        qDebug() << "le diaporama : " << num << " n existe pas" << Qt::endl;
+    }
 }
 
 

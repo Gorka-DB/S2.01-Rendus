@@ -3,6 +3,7 @@
 #include <iostream>
 using namespace std;
 
+//une image qui sera insérée dans un vecteur d'images qui sera lui-même inséré dans un diaporama
 class ImageDansDiaporama
 {
 private:
@@ -16,14 +17,14 @@ public:
     ImageDansDiaporama(unsigned int pRangDansDiaporama=0,
                        string pCategorie="", string pTitre="", string pChemin = "");
     ~ImageDansDiaporama();
-    unsigned int getRangDansDiaporama() const;
+    unsigned int getRangDansDiaporama() const; //getters
     string getCategorie() const;
     string getTitre() const;
     string getChemin() const;
 
     void afficher();    // affiche tous les champs de l'image
 
-    void setRangDansDiaporama (unsigned int pRangDansDiaporama);
+    void setRangDansDiaporama (unsigned int pRangDansDiaporama); //setters
     void setTitre (string pTitre);
     void setCategorie (string pCategorie);
     void setChemin (string pChemin);

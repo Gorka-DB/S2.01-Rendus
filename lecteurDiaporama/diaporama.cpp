@@ -71,7 +71,7 @@ void Diaporama::setPosImageCourante(int pos)
     this->posImageCourante = pos;
 }
 
-void Diaporama::ajouterImageEnFin(ImageDansDiaporama* pImage)
+void Diaporama::ajouterImageEnFin(ImageDansDiaporama* pImage) // ajoute une image au diaporama (en fin de l'attribut images)
 {
     images.push_back(pImage);
     qDebug() << images << Qt::endl;

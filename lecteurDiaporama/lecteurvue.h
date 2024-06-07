@@ -14,17 +14,17 @@ class lecteurvue : public QMainWindow
     Q_OBJECT
 
 private:
-    Ui::lecteurvue* ui;
-    LecteurPresentation* presentation;
+    Ui::lecteurvue* ui; //interface utilisateur
+    LecteurPresentation* presentation; //présentation associée à cette vue
 
 public:
     lecteurvue(QWidget *parent = nullptr);
     ~lecteurvue();
     //mise à jour de la vue
-    void majInterface(QString, std::string, std::string, int);
-    void setPresentation(LecteurPresentation*);
-    LecteurPresentation* getPresentation();
-    void initialisation();
+    void majInterface(QString, std::string, std::string, int); //mise a jour des labels titre, categorie, chemin et de l'image affichée
+    void setPresentation(LecteurPresentation*); //setter pour la présentation
+    LecteurPresentation* getPresentation(); //getter pour la présentation
+    void initialisation(); //inutilisée pour l'instant
 
 private slots:
 

@@ -27,21 +27,21 @@ public:
     Lecteur();
     ~Lecteur();
 
-    UnEtat getEtat() const;
-    void setEtat(UnEtat etat);
+    UnEtat getEtat() const;   // retourne l'état du lecteur (manuel ou automatique)
+    void setEtat(UnEtat etat);  // permet de modifier l'état du lecteur
 
-    unsigned int getIdDiaporama() const;
-    Diaporama* getDiaporama() const;
-    unsigned int getPosImageCourante() const;
+    unsigned int getIdDiaporama() const;            // retourne l'id du diaporama associé au lecteur
+    Diaporama* getDiaporama() const;               // retourne le pointeur vers le diaporama associé au lecteur
+    unsigned int getPosImageCourante() const;     // retourne la position de l'image courante
     bool lecteurVide() const;                         // = vrai si aucun diaporama ssocié au lecteur, faux Sinon
     ImageDansDiaporama* getImageCourante() const;     // retourne le pointeur vers l'image courante
     unsigned int nbImages() const;                    // taille de la collection pointée par diaporama
 
     void afficher();            // affiche les informations sur lecteur + éventuellement diaporama et image courante
 
-    void setIdDiaporama(unsigned int pIdDiaporama);
-    void setDiaporama (Diaporama* pDiaporama);
-    void setPosImageCourante(unsigned int pPosImageCourante);
+    void setIdDiaporama(unsigned int pIdDiaporama); // setter pour idDiaporama
+    void setDiaporama (Diaporama* pDiaporama);    // setter pour diaporama
+    void setPosImageCourante(unsigned int pPosImageCourante); // setter pour posImageCourante
 
     void changerDiaporama(unsigned int pId, string pTitre="", unsigned int pVitesse=0);
         /* Permet de choisir un diaporama, 0 si aucun souhaité.
@@ -63,7 +63,7 @@ public:
 
 private:
     void chargerDiaporamaCourant();    // charge dans le lecteur ImageDansDiaporama du numDiaporamaCourant
-    UnEtat modeLecture;
+    UnEtat modeLecture; // mode de lecture du lecteur (manuel ou automatique)
 };
 
 #endif // LECTEUR_H

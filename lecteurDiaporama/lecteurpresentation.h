@@ -20,20 +20,21 @@ class LecteurPresentation : public QObject {
     Q_OBJECT
 
 private:
-    lecteurvue* laVue;
-    Lecteur* leLecteur;
-    Diaporamas listeDeDiaporamas;
-    QTimer* leTimer;
+    lecteurvue* laVue; // la vue associée à cette presentation
+    Lecteur* leLecteur; // le modèle associé à cette présentation
+    Diaporamas listeDeDiaporamas; // liste des diaporamas disponibles
+    QTimer* leTimer; // timer pour le défilement automatique des images
 
 public:
     LecteurPresentation();
-    Lecteur* getLecteur();
-    lecteurvue* getVue();
-    ImageDansDiaporama* getImageCourante();
-    Diaporama* getDiapoCourant();
-    void setLecteur(Lecteur*);
-    void setVue(lecteurvue*);
+    Lecteur* getLecteur(); // getter pour le modèle
+    lecteurvue* getVue(); // getter pour la vue
+    ImageDansDiaporama* getImageCourante(); // getter pour l'image courante
+    Diaporama* getDiapoCourant(); // getter pour le diaporama courant
+    void setLecteur(Lecteur*); // setter pour le modèle
+    void setVue(lecteurvue*); // setter pour la vue
 
+    // Méthodes de gestion des diaporamas
     void btnSuivantClicked();
     void btnPrecedentClicked();
     void btnLancerClicked();
@@ -44,8 +45,9 @@ public:
     void actionEnleverDiaporamaTriggered();
     void actionQuitterTriggered();
     void actionFiltrerTriggered();
+
 public slots:
-    void autoSuivant();
+    void autoSuivant(); // slot pour le défilement automatique des images
 };
 
 #endif // LECTEURPRESENTATION_H

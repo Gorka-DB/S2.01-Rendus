@@ -77,13 +77,14 @@ void lecteurvue::demander_actionCharger_diaporama_triggered()
     unsigned int numDiapoChoisi = QInputDialog::getInt(this, tr("QInputDialog::getText()"),tr("Numero du diaporama:"), QLineEdit::Normal);
     presentation->actionChargerDiaporamaTriggered(numDiapoChoisi);
 }
+//déplacé et corrigé dans la V6
 
 void lecteurvue::demander_actionModifier_vitesse_triggered()
 {
-
     unsigned int vitesse = QInputDialog::getInt(this, tr("QInputDialog::getText()"),tr("Vitesse de défilement (en sec.) :"), QLineEdit::Normal);
     presentation->actionModifierVitesseTriggered(vitesse);
 }
+//déplacé et corrigé dans la V6
 
 void lecteurvue::demander_actionEnlever_diaporama_triggered()
 {
